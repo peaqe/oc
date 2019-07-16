@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='oc',
-    version='0.1.1',
+    version='0.1.2',
     description='OpenShift CLI (oc) thin wrapper',
     author='Rudá Moura',
     author_email="rmoura@redhat.com",
