@@ -67,9 +67,15 @@ def get_pods():
     return parse(oc(cmd))
 
 
-def logs(pod):
-    "Get logs from pod."
+def logs(pod, since=None, tail=None, timestamps=None):
+    "Get logs from pod. Provides flags for the `--since`, `--     tail`, and `--timestamps` flags.."
     cmd = f'logs {pod}'
+    if since:
+        cmd = cmd + f' --since={since}'
+    if tail:
+        cmd = cmd + f' --tail={tail}'
+    if timestamps:
+        cmd = cmd + f' --timestamps={timestamps}'
     return parse(oc(cmd))
 
 
