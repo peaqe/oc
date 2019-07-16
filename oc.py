@@ -68,7 +68,7 @@ def get_pods():
 
 
 def logs(pod, since=None, tail=None, timestamps=None):
-    "Get logs from pod. Provides flags for the `--since`, `--     tail`, and `--timestamps` flags.."
+    "Get logs from pod. Provides flags for the `since`, `tail`, and `timestamps` flags."
     cmd = f'logs {pod}'
     if since:
         cmd = cmd + f' --since={since}'
