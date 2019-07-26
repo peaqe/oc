@@ -3,7 +3,7 @@ PYTHON=python3
 all: lint
 
 lint:
-	flake8 oc.py setup.py
+	flake8 oc setup.py
 
 publish: lint
 	$(PYTHON) setup.py sdist bdist_wheel
@@ -16,7 +16,8 @@ test-publish: lint
 	rm -rf build dist .egg oc.egg-info
 
 clean:
-	rm -rf *~  build dist .egg *.egg-info
+	find . -name *.py[oc] -or -name *~ | xargs rm -f
+	rm -rf build dist .egg *.egg-info
 	$(PYTHON) setup.py clean
 
 .PHONY: clean test-publish publish lint

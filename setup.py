@@ -1,12 +1,12 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='oc',
-    version='0.1.2',
+    version='0.2.0',
     description='OpenShift CLI (oc) thin wrapper',
     author='Rudá Moura',
     author_email="rmoura@redhat.com",
-    py_modules=['oc'],
+    packages=find_packages(include=['oc']),
     install_requires=['pexpect'],
     # https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
