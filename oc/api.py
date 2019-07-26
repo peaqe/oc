@@ -29,9 +29,15 @@ def parse(output):
 
 
 def login(openshift_url, token):
-    """Log in on openshift_url with Bearer token."""
+    """Log in on openshift_url with Bearer token.
+
+    May raise `RuntimeError` on error (HTTP status code 40x).
+    """
     cmd = f'login {openshift_url} --token={token}'
-    return parse(oc(cmd))
+    output = parse(oc(cmd))
+    if not output or output[0].startswith('Login failed'):
+        raise RuntimeError('\n'.join(output))
+    return output
 
 
 def whoami():
