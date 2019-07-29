@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='oc',
-    version='0.2.0',
+    version='0.2.1',
     license='Apache License',
     description='OpenShift CLI (oc) thin wrapper library for Python3',
     long_description=readme,
