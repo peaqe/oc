@@ -1,9 +1,15 @@
 PYTHON=python3
+PIP=pip3
 
 all: lint
 
 lint:
 	flake8 oc setup.py
+
+init:
+	$(PIP) install pip --upgrade
+	$(PIP) install pipenv --upgrade
+	pipenv install --dev
 
 publish: lint
 	$(PYTHON) setup.py sdist bdist_wheel
@@ -20,4 +26,4 @@ clean:
 	rm -rf build dist .egg *.egg-info
 	$(PYTHON) setup.py clean
 
-.PHONY: clean test-publish publish lint
+.PHONY: clean test-publish publish init lint
