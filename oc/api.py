@@ -70,6 +70,12 @@ def set_project(name):
     return parse(oc(cmd))
 
 
+def status():
+    """Current project status."""
+    cmd = 'status'
+    return parse(oc(cmd))
+
+
 def get_pods():
     """Get all pods."""
     cmd = 'get pods'
