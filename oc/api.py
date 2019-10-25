@@ -52,6 +52,19 @@ def logout():
     return parse(oc(cmd))
 
 
+def new_project(name, display_name=None, description=None):
+    """Create a new project."""
+    cmd = f'new-project {name}'
+    if display_name:
+        cmd = cmd + f' --display-name="{display_name}"'
+    if description:
+        cmd = cmd + f' --description="{description}"'
+    output = parse(oc(cmd))
+    if not output or output[0].startswith('Error from server'):
+        raise RuntimeError('\n'.join(output))
+    return output
+
+
 def get_projects():
     """Get all projects."""
     cmd = 'projects -q'
