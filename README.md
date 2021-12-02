@@ -1,6 +1,8 @@
 OpenShift CLI (oc) thin wrapper for Python3
 ===========================================
 
+> This project has been archived, for a native and full feature library, visit https://pypi.org/project/openshift-client/
+
 This *oc library* is a thin wrapper around the OpenShift CLI `oc`.
 
 Usage
